@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:untitled/BottomNavScreen.dart';
+
+
+import 'BottomNavScreen.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -27,7 +29,7 @@ class _LoginState extends State<Login> {
     try {
 
       // Consider using HTTPS in production
-      final url = Uri.parse('http://10.0.2.2:8000/api/login');
+      final url = Uri.parse('http://localhost:8000/api/login');
 
       final response = await http.post(
         url,

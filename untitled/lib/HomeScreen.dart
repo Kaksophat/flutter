@@ -1,29 +1,15 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:untitled/uihelper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 
 class HomeScreen extends StatelessWidget {
   TextEditingController searchController = TextEditingController();
-
-  Future<void> checkStoredToken() async {
-    try {
-      final prefs = await SharedPreferences.getInstance();
-
-      final token = prefs.getString('token');
-
-      if (token != null && token.isNotEmpty) {
-        print('Token is stored successfully: ${token.substring(0, 10)}...');
-        // Only print first 10 chars for security
-      } else {
-        print('No token found in storage');
-      }
-    } catch (e) {
-      print('Error checking token: $e');
-    }
-  }
   var data = [
-    {"img": "image 50.png", "text": "Lights, Diyas \n & Candles"},
+    {"img": "image 50.png", "6text": "Lights, Diyas \n & Candles"},
     {"img": "image 51.png", "text": "Diwali \n Gifts"},
     {"img": "image 52.png", "text": "Appliances  \n & Gadgets"},
     {"img": "image 53.png", "text": "Home \n & Living"}
@@ -142,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                       UiHelper.CustomImage(img: "image 60.png"),
                       UiHelper.CustomImage(img: "image 55.png"),
                       UiHelper.CustomText(
-                          text: "Mega Diwali Sale",
+                          text: "Welcome to our store",
                           color: Colors.white,
                           fontweight: FontWeight.bold,
                           fontsize: 20,
@@ -229,8 +215,8 @@ class HomeScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(right: 60),
                           child: Row(children: [
-                            UiHelper.CustomImage(img: "image 50 (1).png"),
-                            UiHelper.CustomText(text: "79", color: Color(0XFF9C9C9C), fontweight: FontWeight.bold, fontsize: 15)
+
+                            UiHelper.CustomText(text: NumberFormat.simpleCurrency(locale: 'en_US').format(79), color: Color(0XFF9C9C9C), fontweight: FontWeight.bold, fontsize: 15)
 
                           ],),
                         )

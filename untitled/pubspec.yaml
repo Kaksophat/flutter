@@ -29,13 +29,13 @@ environment:
 # versions available, run `flutter pub outdated`.
 
 dependencies:
-      flutter:
-        sdk: flutter
+  flutter:
+    sdk: flutter
 
-      http: ^0.13.6
-      shared_preferences: ^2.2.2
-      cupertino_icons: ^1.0.8
-
+  http: ^0.13.6
+  shared_preferences: ^2.2.2
+  cupertino_icons: ^1.0.8
+  intl: ^0.18.1
 
 
 
