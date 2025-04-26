@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/uihelper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class HomeScreen extends StatelessWidget {
   TextEditingController searchController = TextEditingController();
+
+  Future<void> checkStoredToken() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+
+      final token = prefs.getString('token');
+
+      if (token != null && token.isNotEmpty) {
+        print('Token is stored successfully: ${token.substring(0, 10)}...');
+        // Only print first 10 chars for security
+      } else {
+        print('No token found in storage');
+      }
+    } catch (e) {
+      print('Error checking token: $e');
+    }
+  }
   var data = [
     {"img": "image 50.png", "text": "Lights, Diyas \n & Candles"},
     {"img": "image 51.png", "text": "Diwali \n Gifts"},

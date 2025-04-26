@@ -1,30 +1,41 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:untitled/main.dart';
+import 'package:untitled/Login.dart';
+import 'package:untitled/BottomNavScreen.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('App should show Login screen when no token exists', (WidgetTester tester) async {
+    // Set up SharedPreferences mock with no token
+    SharedPreferences.setMockInitialValues({});
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Build our app and trigger a frame
+    await tester.pumpWidget(const MyApp(isLoggedIn: false));
+    await tester.pumpAndSettle();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify that Login screen is shown
+    expect(find.byType(Login), findsOneWidget);
+    expect(find.byType(BottomNavScreen), findsNothing);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify login elements are present
+    expect(find.byType(TextField), findsAtLeast(1)); // At least one text field
+    expect(find.widgetWithText(ElevatedButton, "Login"), findsOneWidget);
+  });
+
+  testWidgets('App should show BottomNavScreen when token exists', (WidgetTester tester) async {
+    // Build our app with isLoggedIn set to true
+    await tester.pumpWidget(const MyApp(isLoggedIn: true));
+    await tester.pumpAndSettle();
+
+    // Verify that BottomNavScreen is shown
+    expect(find.byType(BottomNavScreen), findsOneWidget);
+    expect(find.byType(Login), findsNothing);
+  });
+
+  // Add a test for login functionality
+  testWidgets('Login should navigate to BottomNavScreen on success', (WidgetTester tester) async {
+    // This would require mocking the HTTP response
+    // Implementation would depend on your HTTP client and testing approach
   });
 }
