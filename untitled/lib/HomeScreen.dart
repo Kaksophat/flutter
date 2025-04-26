@@ -1,283 +1,227 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:untitled/uihelper.dart';
-
+import 'package:untitled/wigets/category_card.dart';
+import 'package:untitled/wigets/custom_bottom_nav.dart';
 
 
 class HomeScreen extends StatelessWidget {
-  TextEditingController searchController = TextEditingController();
-  var data = [
-    {"img": "image 50.png", "6text": "Lights, Diyas \n & Candles"},
-    {"img": "image 51.png", "text": "Diwali \n Gifts"},
-    {"img": "image 52.png", "text": "Appliances  \n & Gadgets"},
-    {"img": "image 53.png", "text": "Home \n & Living"}
-  ];
-  var categroy = [
-    {"img": "image 54.png", "text": "Golden Glass\n Wooden Lid Candle (Oudh)"},
-    {"img": "image 57.png", "text": "Royal Gulab Jamun\n By Bikano"},
-    {"img": "image 63.png", "text": "Golden Glass\n Wooden Lid Candle (Oudh)"},
-  ];
-  var grocerykitchen = [
-    {"img": "image 41.png", "text": "Vegetables & \nFruits"},
-    {"img": "image 42.png", "text": "Atta, Dal & \nRice"},
-    {"img": "image 43.png", "text": "Oil, Ghee & \nMasala"},
-    {"img": "image 44 (1).png", "text": "Dairy, Bread & \nMilk"},
-    {"img": "image 45 (1).png", "text": "Biscuits & \nBakery"}
-  ];
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-          children: [
-            SizedBox(
-              height: 40,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(40),
+      ),
+      child: Column(
+        children: [
+          const SizedBox(height: 13),
+          Container(
+            width: 350,
+            padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
+            decoration: BoxDecoration(
+              color: const Color(0xFF4E74F9),
+              borderRadius: BorderRadius.circular(30),
             ),
-            Stack(
+            child: Column(
               children: [
-                Container(
-                  height: 190,
-                  width: double.infinity,
-                  color: Color(0XFFEC0505),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          UiHelper.CustomText(
-                              text: "Blinkit in",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 15,
-                              fontfamily: "bold"),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          UiHelper.CustomText(
-                              text: "16 minutes",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 20,
-                              fontfamily: "bold")
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          UiHelper.CustomText(
-                              text: "HOME ",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 14),
-                          UiHelper.CustomText(
-                              text: "- Sujal Dave, Ratanada, Jodhpur (Raj)",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 14)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  right: 20,
-                  bottom: 100,
-                  child: CircleAvatar(
-                    radius: 15,
-                    backgroundColor: Colors.black,
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                  ),
-                ),
-                Positioned(
-                    bottom: 30,
-                    left: 20,
-                    child: UiHelper.CustomTextField(controller: searchController))
-              ],
-            ),
-            Container(
-              height: 1,
-              width: double.infinity,
-              color: Colors.white,
-            ),
-            Container(
-              height: 196,
-              width: double.infinity,
-              color: Color(0XFFEC0505),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      UiHelper.CustomImage(img: "image 60.png"),
-                      UiHelper.CustomImage(img: "image 55.png"),
-                      UiHelper.CustomText(
-                          text: "Welcome to our store",
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RichText(
+                      text: const TextSpan(
+                        style: TextStyle(
+                          fontFamily: 'DM Sans',
+                          fontSize: 20,
                           color: Colors.white,
-                          fontweight: FontWeight.bold,
-                          fontsize: 20,
-                          fontfamily: "bold"),
-                      UiHelper.CustomImage(img: "image 55.png"),
-                      UiHelper.CustomImage(img: "image 61.png")
-                    ],
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                                left: 5, right: 5, top: 1, bottom: 1),
-                            child: Container(
-                              height: 108,
-                              width: 86,
-                              decoration: BoxDecoration(
-                                  color: Color(0XFFEAD3D3),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Column(
-                                children: [
-                                  UiHelper.CustomText(
-                                      text: data[index]["text"].toString(),
-                                      color: Colors.black,
-                                      fontweight: FontWeight.bold,
-                                      fontsize: 10),
-                                  UiHelper.CustomImage(
-                                      img: data[index]["img"].toString())
-                                ],
-                              ),
+                          height: 1.3,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: 'Hello,\n',
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w700,
                             ),
-                          );
-                        },
-                        itemCount: data.length,
-                        scrollDirection: Axis.horizontal,
+                          ),
+                          TextSpan(
+                            text: 'good Morning',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
+                    Container(
+                      width: 41,
+                      height: 41,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(35),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 46),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(53, 15, 17, 15),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFEFDFE),
+                    borderRadius: BorderRadius.circular(100),
                   ),
-                ],
-              ),
-            ),
-
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            clipBehavior: Clip.antiAlias,
-                            height: 108,
-                            width: 93,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: UiHelper.CustomImage(
-                                img: categroy[index]["img"].toString()),
-                          ),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Search',
+                        style: TextStyle(
+                          color: Color(0xFFB7B7B7),
+                          fontSize: 14,
+                          fontFamily: 'Inter',
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: UiHelper.CustomText(
-                              text: categroy[index]["text"].toString(),
-                              color: Colors.black,
-                              fontweight: FontWeight.bold,
-                              fontsize: 8),
+                      ),
+                      const SizedBox(width: 100),
+                      const Text(
+                        'All',
+                        style: TextStyle(
+                          color: Color(0xFFB7B7B7),
+                          fontSize: 14,
+                          fontFamily: 'Inter',
                         ),
-                        SizedBox(height: 5,),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 40),
-                          child: Row(children: [
-                            UiHelper.CustomImage(img: "timer 4.png"),
-                            UiHelper.CustomText(text: "16 MINS", color: Color(0XFF9C9C9C), fontweight: FontWeight.normal, fontsize: 10)
-                          ],),
-                        ),
-                        SizedBox(height: 5,),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 60),
-                          child: Row(children: [
-
-                            UiHelper.CustomText(text: NumberFormat.simpleCurrency(locale: 'en_US').format(79), color: Color(0XFF9C9C9C), fontweight: FontWeight.bold, fontsize: 15)
-
-                          ],),
-                        )
-                      ],
-                    );
-                  },
-                  itemCount: categroy.length,
-                  scrollDirection: Axis.horizontal,
+                      ),
+                      const SizedBox(width: 18),
+                      Image.asset('https://cdn.builder.io/api/v1/image/assets/TEMP/61e57f7bb4893a514b91698d2370d76de94bd06f?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39', width: 10),
+                    ],
+                  ),
                 ),
-              ),
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                UiHelper.CustomText(
-                    text: "Grocery & Kitchen",
-                    color: Colors.black,
-                    fontweight: FontWeight.bold,
-                    fontsize: 14,
-                    fontfamily: "bold")
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Container(
-                            height: 78,
-                            width: 71,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0XFFD9EBEB)),
-                            child: UiHelper.CustomImage(
-                                img: grocerykitchen[index]["img"].toString()),
-                          ),
-                        ),
-                        UiHelper.CustomText(
-                            text: grocerykitchen[index]["text"].toString(),
-                            color: Colors.black,
-                            fontweight: FontWeight.normal,
-                            fontsize: 10)
-                      ],
-                    );
-                  },
-                  itemCount: grocerykitchen.length,
-                  scrollDirection: Axis.horizontal,
+          ),
+          const SizedBox(height: 26),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  'Explore categories',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontFamily: 'DM Sans',
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
+                Text(
+                  'See all',
+                  style: TextStyle(
+                    color: Color(0xFF4D8AF0),
+                    fontSize: 14,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ));
+          ),
+          const SizedBox(height: 23),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    CategoryCard(
+                      imagePath: 'https://cdn.builder.io/api/v1/image/assets/TEMP/421b06e9bf1d2ccefe7af483409e4413e8a07356?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                      title: 'Accounting',
+                      coursesCount: '20 Courses',
+                    ),
+                    SizedBox(width: 15),
+                    CategoryCard(
+                      imagePath: 'https://cdn.builder.io/api/v1/image/assets/TEMP/f1af444cf1366c99d8e8ca4232fd2d102b257612?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                      title: 'Biology',
+                      coursesCount: '15 Courses',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 23),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    CategoryCard(
+                      imagePath: 'https://cdn.builder.io/api/v1/image/assets/TEMP/f6f9cb123471f022bf1ea39f42d8072b5a4d009e?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                      title: 'Photography',
+                      coursesCount: '25 Courses',
+                    ),
+                    SizedBox(width: 15),
+                    CategoryCard(
+                      imagePath: 'https://cdn.builder.io/api/v1/image/assets/TEMP/e6e378abf63190fcf97c72afec5c717be63eaf71?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                      title: 'Marketing',
+                      coursesCount: '18 Courses',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 23),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 156,
+                      height: 156,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.08),
+                            offset: const Offset(8, 4),
+                            blurRadius: 25,
+                          ),
+                        ],
+                      ),
+                      padding: const EdgeInsets.all(4),
+                      child: Center(
+                        child: Image.asset(
+                          'https://cdn.builder.io/api/v1/image/assets/TEMP/0b7f8f4b279d525cbdfcc7128f5675d3fb6ebbe8?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                          width: 134,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                    Container(
+                      width: 156,
+                      height: 156,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.08),
+                            offset: const Offset(8, 4),
+                            blurRadius: 25,
+                          ),
+                        ],
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Center(
+                        child: Image.asset(
+                          'https://cdn.builder.io/api/v1/image/assets/TEMP/5d075f961bf0cc351696973dc28151c707eea2af?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                          width: 88,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const Spacer(),
+          const CustomBottomNav(),
+        ],
+      ),
+    );
   }
 }
