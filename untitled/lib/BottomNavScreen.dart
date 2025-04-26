@@ -1,6 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/profile.dart';
+import 'package:untitled/shopping.dart';
 
 
 import 'HomeScreen.dart';
@@ -19,8 +21,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   // All pages must be included here corresponding to each tab
   List<Widget> pages = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    ShopScreen(),
+    SettingsProfileScreen(),
   ];
 
   @override
