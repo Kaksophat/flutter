@@ -53,7 +53,7 @@ class SettingsProfileScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      _buildInputField('Romina', weight: FontWeight.w400),
+                      _buildInputField('Ronaldo JR', weight: FontWeight.w400),
                       const SizedBox(height: 10),
                       _buildInputField('gmail@example.com'),
                       const SizedBox(height: 10),
