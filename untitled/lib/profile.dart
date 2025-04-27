@@ -74,11 +74,11 @@ class SettingsProfileScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Image.network(
-                    'https://cdn.builder.io/api/v1/image/assets/TEMP/2bf392a41e7117f487e48f9beaa2042727f9a55b?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                    width: double.infinity,
-                    fit: BoxFit.contain,
-                  ),
+                  // child: Image.network(
+                  //   'https://cdn.builder.io/api/v1/image/assets/TEMP/2bf392a41e7117f487e48f9beaa2042727f9a55b?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                  //   width: double.infinity,
+                  //   fit: BoxFit.contain,
+                  // ),
                 ),
               ],
             ),
@@ -102,30 +102,30 @@ class SettingsProfileScreen extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          Row(
-            children: [
-              Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/94c04ae2a34f41b7ebc51be6683056f9d9997ab5?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                width: 17,
-                height: 10,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(width: 5),
-              Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/decb808e0ccfbafe1b4ce11553cd0e3952a1a3c6?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                width: 15,
-                height: 11,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(width: 5),
-              Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/b7e1a147832da4504704854985e7a2c4dba162e7?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                width: 24,
-                height: 12,
-                fit: BoxFit.contain,
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Image.network(
+          //       'https://cdn.builder.io/api/v1/image/assets/TEMP/94c04ae2a34f41b7ebc51be6683056f9d9997ab5?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+          //       width: 17,
+          //       height: 10,
+          //       fit: BoxFit.contain,
+          //     ),
+          //     const SizedBox(width: 5),
+          //     Image.network(
+          //       'https://cdn.builder.io/api/v1/image/assets/TEMP/decb808e0ccfbafe1b4ce11553cd0e3952a1a3c6?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+          //       width: 15,
+          //       height: 11,
+          //       fit: BoxFit.contain,
+          //     ),
+          //     const SizedBox(width: 5),
+          //     Image.network(
+          //       'https://cdn.builder.io/api/v1/image/assets/TEMP/b7e1a147832da4504704854985e7a2c4dba162e7?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+          //       width: 24,
+          //       height: 12,
+          //       fit: BoxFit.contain,
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );

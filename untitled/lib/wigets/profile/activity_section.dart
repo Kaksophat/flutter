@@ -42,30 +42,30 @@ class ActivitySection extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/2edd316c942df6efb5a65a303ba9e43f8eeefa73?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                width: 35,
-                height: 35,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(width: 10),
-              Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/598b78da1d2d75c56a20cea49e9d855ceb57bb3d?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                width: 35,
-                height: 35,
-                fit: BoxFit.contain,
-              ),
-              const SizedBox(width: 10),
-              Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/f7abc6a3743c233fbe612fd8d8f9a127c51e6aa6?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                width: 35,
-                height: 35,
-                fit: BoxFit.contain,
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Image.network(
+          //       'https://cdn.builder.io/api/v1/image/assets/TEMP/2edd316c942df6efb5a65a303ba9e43f8eeefa73?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+          //       width: 35,
+          //       height: 35,
+          //       fit: BoxFit.contain,
+          //     ),
+          //     const SizedBox(width: 10),
+          //     Image.network(
+          //       'https://cdn.builder.io/api/v1/image/assets/TEMP/598b78da1d2d75c56a20cea49e9d855ceb57bb3d?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+          //       width: 35,
+          //       height: 35,
+          //       fit: BoxFit.contain,
+          //     ),
+          //     const SizedBox(width: 10),
+          //     Image.network(
+          //       'https://cdn.builder.io/api/v1/image/assets/TEMP/f7abc6a3743c233fbe612fd8d8f9a127c51e6aa6?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+          //       width: 35,
+          //       height: 35,
+          //       fit: BoxFit.contain,
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );
