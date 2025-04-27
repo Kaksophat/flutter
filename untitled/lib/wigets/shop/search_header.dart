@@ -40,12 +40,12 @@ class SearchHeader extends StatelessWidget {
                     letterSpacing: -0.16,
                   ),
                 ),
-                const SizedBox(width: 100),
-                Image.network(
-                  'https://cdn.builder.io/api/v1/image/assets/TEMP/10e50150501f26cb83391a4b05a0f8e4e068e2f8?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                  width: 20,
-                  fit: BoxFit.contain,
-                ),
+                // const SizedBox(width: 100),
+                // Image.network(
+                //   'https://cdn.builder.io/api/v1/image/assets/TEMP/10e50150501f26cb83391a4b05a0f8e4e068e2f8?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                //   width: 20,
+                //   fit: BoxFit.contain,
+                // ),
               ],
             ),
           ),

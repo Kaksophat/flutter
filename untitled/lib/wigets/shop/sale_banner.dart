@@ -18,12 +18,12 @@ class SaleBanner extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Image.network(
-            'https://cdn.builder.io/api/v1/image/assets/TEMP/039678b161b0c9d13dc58cca025a689696c3bf87?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
+          // Image.network(
+          //   'https://cdn.builder.io/api/v1/image/assets/TEMP/039678b161b0c9d13dc58cca025a689696c3bf87?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+          //   fit: BoxFit.cover,
+          //   width: double.infinity,
+          //   height: double.infinity,
+          // ),
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 12, 67, 4),
             child: Column(

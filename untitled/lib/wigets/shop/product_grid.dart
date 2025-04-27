@@ -54,25 +54,25 @@ class ProductGrid extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'See All',
-                    style: GoogleFonts.raleway(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      color: const Color(0xFF202020),
-                    ),
-                  ),
-                  const SizedBox(width: 13),
-                  Image.network(
-                    'https://cdn.builder.io/api/v1/image/assets/TEMP/81302366c25c4d224ffb1068039ea1792b7ed95d?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                    width: 30,
-                    height: 30,
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     Text(
+              //       'See All',
+              //       style: GoogleFonts.raleway(
+              //         fontSize: 15,
+              //         fontWeight: FontWeight.w700,
+              //         color: const Color(0xFF202020),
+              //       ),
+              //     ),
+              //     const SizedBox(width: 13),
+              //     Image.network(
+              //       'https://cdn.builder.io/api/v1/image/assets/TEMP/81302366c25c4d224ffb1068039ea1792b7ed95d?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+              //       width: 30,
+              //       height: 30,
+              //     ),
+              //   ],
+              // ),
               const SizedBox(height: 13),
               Row(
                 children: [

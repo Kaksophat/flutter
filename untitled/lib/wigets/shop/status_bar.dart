@@ -22,19 +22,19 @@ class StatusBar extends StatelessWidget {
           Row(
             children: [
               Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/64ac293cd0d911adb52872622f48942205c6cc58?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                'https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png',
                 width: 17,
                 fit: BoxFit.contain,
               ),
               const SizedBox(width: 5),
               Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/cc9e5ac6b98482b032d354934de92bf1b46426fa?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                'https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png',
                 width: 15,
                 fit: BoxFit.contain,
               ),
-              const SizedBox(width: 5),
+              const SizedBox(width: 2),
               Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/c30f4e9966eb5969816b16da18b6d684eac60a88?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                'https://www.iconpacks.net/icons/2/free-settings-icon-3110-thumb.png',
                 width: 24,
                 fit: BoxFit.contain,
               ),

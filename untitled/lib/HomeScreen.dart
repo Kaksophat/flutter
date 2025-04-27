@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/wigets/profile/activity_section.dart';
-import 'package:untitled/wigets/profile/announcement_card.dart';
 import 'package:untitled/wigets/profile/orders_section.dart';
+import 'package:untitled/wigets/profile/search_tag.dart';
 import 'package:untitled/wigets/profile/status_bar.dart';
 import 'package:untitled/wigets/profile/stories_section.dart';
 class HomeScreen extends StatelessWidget {
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                     bottom: 12,
                   ),
                   child: Text(
-                    'Hello, Romina!',
+                    'Hello, User!',
                     style: TextStyle(
                       color: Color(0xFF202020),
                       fontSize: 28,
@@ -39,7 +39,82 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                // const AnnouncementCard(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 9),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Search history',
+                        style: TextStyle(
+                          color: Color(0xFF202020),
+                          fontSize: 18,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: -0.18,
+                        ),
+                      ),
+                      const SizedBox(height: 26),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: const [
+                          SearchTag(text: 'Red Dress'),
+                          SearchTag(text: 'Sunglasses'),
+                          SearchTag(text: 'Mustard Pants'),
+                          SearchTag(text: '80-s Skirt'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Recommendations Section
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 31),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Recommendations',
+                        style: TextStyle(
+                          color: Color(0xFF202020),
+                          fontSize: 18,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: -0.18,
+                        ),
+                      ),
+                      const SizedBox(height: 26),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: const [
+                          SearchTag(
+                            text: 'Skirt',
+                            backgroundColor: Color(0xFFF9F9F9),
+                          ),
+                          SearchTag(
+                            text: 'Accessories',
+                            backgroundColor: Color(0xFFF9F9F9),
+                          ),
+                          SearchTag(
+                            text: 'Black T-Shirt',
+                            backgroundColor: Color(0xFFF9F9F9),
+                          ),
+                          SearchTag(
+                            text: 'Jeans',
+                            backgroundColor: Color(0xFFF9F9F9),
+                          ),
+                          SearchTag(
+                            text: 'White Shoes',
+                            backgroundColor: Color(0xFFF9F9F9),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 18,

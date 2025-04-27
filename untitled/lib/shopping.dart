@@ -69,24 +69,24 @@ class ShopScreen extends StatelessWidget {
                               letterSpacing: -0.21,
                             ),
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                'See All',
-                                style: GoogleFonts.raleway(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w700,
-                                  color: const Color(0xFF202020),
-                                ),
-                              ),
-                              const SizedBox(width: 13),
-                              Image.network(
-                                'https://cdn.builder.io/api/v1/image/assets/TEMP/81302366c25c4d224ffb1068039ea1792b7ed95d?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                                width: 30,
-                                height: 30,
-                              ),
-                            ],
-                          ),
+                          // Row(
+                          //   children: [
+                          //     Text(
+                          //       'See All',
+                          //       style: GoogleFonts.raleway(
+                          //         fontSize: 15,
+                          //         fontWeight: FontWeight.w700,
+                          //         color: const Color(0xFF202020),
+                          //       ),
+                          //     ),
+                          //     const SizedBox(width: 13),
+                          //     Image.network(
+                          //       'https://cdn.builder.io/api/v1/image/assets/TEMP/81302366c25c4d224ffb1068039ea1792b7ed95d?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                          //       width: 30,
+                          //       height: 30,
+                          //     ),
+                          //   ],
+                          // ),
                         ],
                       ),
                       const SizedBox(height: 10),
@@ -172,12 +172,12 @@ class ShopScreen extends StatelessWidget {
                               letterSpacing: -0.21,
                             ),
                           ),
-                          const SizedBox(width: 7),
-                          Image.network(
-                            'https://cdn.builder.io/api/v1/image/assets/TEMP/2ba839db766b16aa5802dacac6b76759c4902ac4?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
-                            width: 14,
-                            fit: BoxFit.contain,
-                          ),
+                          // const SizedBox(width: 7),
+                          // Image.network(
+                          //   'https://cdn.builder.io/api/v1/image/assets/TEMP/2ba839db766b16aa5802dacac6b76759c4902ac4?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39',
+                          //   width: 14,
+                          //   fit: BoxFit.contain,
+                          // ),
                         ],
                       ),
                       const SizedBox(height: 10),

@@ -44,10 +44,6 @@ class AnnouncementCard extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Image.network('https://cdn.builder.io/api/v1/image/assets/TEMP/6d601f2136c7b1ffb37178c821717225a37818be?placeholderIfAbsent=true&apiKey=c1a770d5efc842ad9b9b4a132f585b39', width: 30, height: 30),
-          ),
         ],
       ),
     );
