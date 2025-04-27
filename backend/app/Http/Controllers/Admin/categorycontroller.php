@@ -29,7 +29,7 @@ class categorycontroller extends Controller
         return response()->json([
             "status" => 201,
             "category" =>  $category
-        ]);
+        ],201);
     }
     public function update($id ,Request $request){
         $category=category::find($id);
