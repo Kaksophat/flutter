@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/AccountScreen.dart';
 import 'package:untitled/HomeScreen.dart';
+import 'package:untitled/shopping.dart';
 // Make sure to import your other screens
 // import 'package:untitled/CartScreen.dart';
 // import 'package:untitled/AccountScreen.dart';
@@ -15,8 +17,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   // All pages must be included here corresponding to each tab
   List<Widget> pages = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    ShopScreen(),
+    AccountScreen(),
   ];
 
   @override

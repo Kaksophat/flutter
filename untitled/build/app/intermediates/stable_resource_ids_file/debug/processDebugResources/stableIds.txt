@@ -23,6 +23,7 @@ com.example.untitled:styleable/AnimatedStateListDrawableTransition = 0x7f0f000b
 com.example.untitled:styleable/AnimatedStateListDrawableItem = 0x7f0f000a
 com.example.untitled:styleable/ActivityRule = 0x7f0f0007
 com.example.untitled:styleable/ActionBar = 0x7f0f0000
+com.example.untitled:xml/flutter_image_picker_file_paths = 0x7f100000
 com.example.untitled:style/Widget.Compat.NotificationActionContainer = 0x7f0e017d
 com.example.untitled:style/Widget.AppCompat.Toolbar.Button.Navigation = 0x7f0e017c
 com.example.untitled:style/Widget.AppCompat.Toolbar = 0x7f0e017b

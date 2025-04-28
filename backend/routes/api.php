@@ -32,6 +32,7 @@ Route::get("/brands",[brandcontroller::class,"getbrand"]);
 Route::get("/products/{id}",[ProductController::class,"getsingleproduct"]);
 Route::get("/featured",[UserProduct::class,"featured"]);
 Route::get("/flashsale",[UserProduct::class,"flashsale"]);
+Route::get("/phone/{name}",[UserProduct::class,"getProductsByCategory"]);
 
 Route::get("/settings/{id}",[settingcontroller::class,"index"]);
 

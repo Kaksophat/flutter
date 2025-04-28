@@ -46,11 +46,7 @@ class UserProduct extends Controller
 
     public function featured (Request $request)
     {
-        $products = Product::whereHas('category', function($query) {
-            $query->where('status', '!=', 0); 
-        })->where('status', '!=', 0)->where("quantity", '!=',0)->wherehas('brand',function($query){
-            $query->where('status', '!=',0);
-        })->orderBy('created_at', 'DESC')->limit(4)->get();
+        $products = Product::orderBy('created_at', 'DESC')->limit(4)->get();
     
        
 
@@ -62,21 +58,36 @@ class UserProduct extends Controller
         ]);
     }
 
+
+
+public function getProductsByCategory(Request $request, $categoryId)
+{
+   $products = Product::fine($categoryId);
+
+       return response()->json([
+           "status" => 200,
+           "products" => $products
+       ]);
+}
+
+
+
     public function flashsale (Request $request)
     {
-        $products = Product::whereHas('category', function($query) {
-            $query->where('status', '!=', 0); 
-        })->where('status', '!=', 0)->where("quantity", '!=',0)->wherehas('brand',function($query){
-            $query->where('status', '!=',0);
-        })->orderBy('created_at', 'ASC')->limit(4)->get();
+         $products = Product::orderBy('created_at', 'ASC')->limit(6)->get();
+
+
+
+
+               return response()->json([
+                   "status" => 200,
+                   "product" => $products  ,
+
+               ]);
     
        
 
     
-        return response()->json([
-            "status" => 200,
-            "product" => $products  ,
-          
-        ]);
+
     }
 }

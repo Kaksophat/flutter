@@ -1,186 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/uihelper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-
+import 'package:untitled/wigets/profile/activity_section.dart';
+import 'package:untitled/wigets/profile/orders_section.dart';
+import 'package:untitled/wigets/profile/search_tag.dart';
+import 'package:untitled/wigets/profile/status_bar.dart';
+import 'package:untitled/wigets/profile/stories_section.dart';
+import 'package:untitled/wigets/shop/product_list.dart';
+import 'package:untitled/wigets/shop/product_phone.dart';
 class HomeScreen extends StatelessWidget {
-  TextEditingController searchController = TextEditingController();
+  const HomeScreen({super.key});
 
-  Future<void> checkStoredToken() async {
-    try {
-      final prefs = await SharedPreferences.getInstance();
-
-      final token = prefs.getString('token');
-
-      if (token != null && token.isNotEmpty) {
-        print('Token is stored successfully: ${token.substring(0, 10)}...');
-        // Only print first 10 chars for security
-      } else {
-        print('No token found in storage');
-      }
-    } catch (e) {
-      print('Error checking token: $e');
-    }
-  }
-  var data = [
-    {"img": "image 50.png", "text": "Lights, Diyas \n & Candles"},
-    {"img": "image 51.png", "text": "Diwali \n Gifts"},
-    {"img": "image 52.png", "text": "Appliances  \n & Gadgets"},
-    {"img": "image 53.png", "text": "Home \n & Living"}
-  ];
-  var categroy = [
-    {"img": "image 54.png", "text": "Golden Glass\n Wooden Lid Candle (Oudh)"},
-    {"img": "image 57.png", "text": "Royal Gulab Jamun\n By Bikano"},
-    {"img": "image 63.png", "text": "Golden Glass\n Wooden Lid Candle (Oudh)"},
-  ];
-  var grocerykitchen = [
-    {"img": "image 41.png", "text": "Vegetables & \nFruits"},
-    {"img": "image 42.png", "text": "Atta, Dal & \nRice"},
-    {"img": "image 43.png", "text": "Oil, Ghee & \nMasala"},
-    {"img": "image 44 (1).png", "text": "Dairy, Bread & \nMilk"},
-    {"img": "image 45 (1).png", "text": "Biscuits & \nBakery"}
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
+      appBar: AppBar(
+        title: const Text('N', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 40,
-            ),
-            Stack(
-              children: [
-                Container(
-                  height: 190,
-                  width: double.infinity,
-                  color: Color(0XFFEC0505),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          UiHelper.CustomText(
-                              text: "Blinkit in",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 15,
-                              fontfamily: "bold"),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          UiHelper.CustomText(
-                              text: "16 minutes",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 20,
-                              fontfamily: "bold")
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          UiHelper.CustomText(
-                              text: "HOME ",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 14),
-                          UiHelper.CustomText(
-                              text: "- Sujal Dave, Ratanada, Jodhpur (Raj)",
-                              color: Color(0XFFFFFFFF),
-                              fontweight: FontWeight.bold,
-                              fontsize: 14)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  right: 20,
-                  bottom: 100,
-                  child: CircleAvatar(
-                    radius: 15,
-                    backgroundColor: Colors.black,
-                    child: Icon(
-                      Icons.person,
+            // New Collections Banner
+            Container(
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'NEW COLLECTIONS',
+                    style: TextStyle(
                       color: Colors.white,
-                      size: 20,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-                Positioned(
-                    bottom: 30,
-                    left: 20,
-                    child: UiHelper.CustomTextField(controller: searchController))
-              ],
-            ),
-            Container(
-              height: 1,
-              width: double.infinity,
-              color: Colors.white,
-            ),
-            Container(
-              height: 196,
-              width: double.infinity,
-              color: Color(0XFFEC0505),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      UiHelper.CustomImage(img: "image 60.png"),
-                      UiHelper.CustomImage(img: "image 55.png"),
-                      UiHelper.CustomText(
-                          text: "Mega Diwali Sale",
-                          color: Colors.white,
-                          fontweight: FontWeight.bold,
-                          fontsize: 20,
-                          fontfamily: "bold"),
-                      UiHelper.CustomImage(img: "image 55.png"),
-                      UiHelper.CustomImage(img: "image 61.png")
-                    ],
+                  const SizedBox(height: 8),
+                  const Text(
+                    '20%',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                                left: 5, right: 5, top: 1, bottom: 1),
-                            child: Container(
-                              height: 108,
-                              width: 86,
-                              decoration: BoxDecoration(
-                                  color: Color(0XFFEAD3D3),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Column(
-                                children: [
-                                  UiHelper.CustomText(
-                                      text: data[index]["text"].toString(),
-                                      color: Colors.black,
-                                      fontweight: FontWeight.bold,
-                                      fontsize: 10),
-                                  UiHelper.CustomImage(
-                                      img: data[index]["img"].toString())
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                        itemCount: data.length,
-                        scrollDirection: Axis.horizontal,
+                  const SizedBox(height: 16),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Shop Now',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -188,110 +72,161 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            clipBehavior: Clip.antiAlias,
-                            height: 108,
-                            width: 93,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: UiHelper.CustomImage(
-                                img: categroy[index]["img"].toString()),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: UiHelper.CustomText(
-                              text: categroy[index]["text"].toString(),
-                              color: Colors.black,
-                              fontweight: FontWeight.bold,
-                              fontsize: 8),
-                        ),
-                        SizedBox(height: 5,),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 40),
-                          child: Row(children: [
-                            UiHelper.CustomImage(img: "timer 4.png"),
-                            UiHelper.CustomText(text: "16 MINS", color: Color(0XFF9C9C9C), fontweight: FontWeight.normal, fontsize: 10)
-                          ],),
-                        ),
-                        SizedBox(height: 5,),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 60),
-                          child: Row(children: [
-                            UiHelper.CustomImage(img: "image 50 (1).png"),
-                            UiHelper.CustomText(text: "79", color: Color(0XFF9C9C9C), fontweight: FontWeight.bold, fontsize: 15)
+            // Shop By Category Section
+            // _buildSectionHeader('Shop By Category'),
+            // SizedBox(
+            //   height: 100,
+            //   child: ListView(
+            //     scrollDirection: Axis.horizontal,
+            //     children: const [
+            //       _CategoryItem(label: 'A'),
+            //       _CategoryItem(label: 'B'),
+            //       _CategoryItem(label: 'C'),
+            //       _CategoryItem(label: 'D'),
+            //     ],
+            //   ),
+            // ),
+            //
+            // // Gender Categories
+            // _buildSectionHeader('Women'),
+            // _buildSectionHeader('Men'),
+            // _buildSectionHeader('Teens'),
+            // _buildSectionHeader('Kids'),
+            // _buildSectionHeader('Baby'),
 
-                          ],),
-                        )
-                      ],
-                    );
-                  },
-                  itemCount: categroy.length,
-                  scrollDirection: Axis.horizontal,
-                ),
+            // Curated For You Section
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Featured',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Product_phone(),
+                  // const SizedBox(height: 40),
+
+
+                ],
+
               ),
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                UiHelper.CustomText(
-                    text: "Grocery & Kitchen",
-                    color: Colors.black,
-                    fontweight: FontWeight.bold,
-                    fontsize: 14,
-                    fontfamily: "bold")
-              ],
+
+
+    // Content Cards
+
+
+
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSectionHeader(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}
+
+class _CategoryItem extends StatelessWidget {
+  final String label;
+
+  const _CategoryItem({required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 80,
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Center(
+        child: Text(
+          label,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+    );
+  }
+}
+
+class _ContentCard extends StatelessWidget {
+  final String title;
+  final String? subtitle;
+  final String? details;
+  final String? action;
+
+  const _ContentCard({
+    required this.title,
+    this.subtitle,
+    this.details,
+    this.action,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
             ),
-            SizedBox(
-              height: 10,
+          ),
+          if (subtitle != null) ...[
+            const SizedBox(height: 4),
+            Text(
+              subtitle!,
+              style: TextStyle(color: Colors.grey[600]),
             ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Container(
-                            height: 78,
-                            width: 71,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0XFFD9EBEB)),
-                            child: UiHelper.CustomImage(
-                                img: grocerykitchen[index]["img"].toString()),
-                          ),
-                        ),
-                        UiHelper.CustomText(
-                            text: grocerykitchen[index]["text"].toString(),
-                            color: Colors.black,
-                            fontweight: FontWeight.normal,
-                            fontsize: 10)
-                      ],
-                    );
-                  },
-                  itemCount: grocerykitchen.length,
-                  scrollDirection: Axis.horizontal,
+          ],
+          if (details != null) ...[
+            const SizedBox(height: 4),
+            Text(
+              details!,
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+          ],
+          if (action != null) ...[
+            const SizedBox(height: 8),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                action!,
+                style: const TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
           ],
-        ));
+        ],
+      ),
+    );
   }
 }

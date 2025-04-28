@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled/AdminDashboard.dart';
 import 'package:untitled/BottomNavScreen.dart';
+import 'package:untitled/Registe.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -27,7 +29,7 @@ class _LoginState extends State<Login> {
     try {
 
       // Consider using HTTPS in production
-      final url = Uri.parse('http://10.0.2.2:8000/api/login');
+      final url = Uri.parse('http://127.0.0.1:8000/api/login');
 
       final response = await http.post(
         url,
@@ -49,23 +51,42 @@ class _LoginState extends State<Login> {
           return;
         }
 
-        // Save token securely
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', token);
-        print('Login successful! Token: $token');
 
-        // Save user data if available
+        if (data['data'] != null) {
+          final user = data['data'];
+          await prefs.setString('name', user['name'] ?? '');
+          await prefs.setString('email', user['email'] ?? '');
+          await prefs.setString('role', user['role'] ?? '');
+          await prefs.setString('user_id', user['id'] ?? '');
+        }
+
+
         if (data['user'] != null) {
           await prefs.setString('user_data', jsonEncode(data['user']));
 
         }
+        final role = data['data']['role'];
+
+        if (role == 'admin') {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => AdminDashboard()),
+          );
+        } else {
+          Navigator.pushReplacement(
+
+
+
+            context,
+            MaterialPageRoute(builder: (context) => BottomNavScreen()),
+          );
+        }
 
 
         // Navigate to home screen
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => BottomNavScreen()),
-        );
+
       } else {
         // Try to parse error message
         try {
@@ -75,14 +96,8 @@ class _LoginState extends State<Login> {
           _showErrorMessage('Login failed with status: ${response.statusCode}');
         }
       }
-    } on http.ClientException catch (e) {
-      _showErrorMessage('Connection error: ${e.message}');
-      debugPrint('ClientException: $e');
-    } on FormatException catch (e) {
-      _showErrorMessage('Invalid response format from server');
-      debugPrint('FormatException: $e');
-    } catch (e) {
-      _showErrorMessage('An error occurred. Please try again.');
+    }  catch (e) {
+
       debugPrint('Login error: $e');
     } finally {
       if (mounted) {
@@ -117,7 +132,7 @@ class _LoginState extends State<Login> {
               children: [
                 const SizedBox(height: 80),
                 const Text(
-                  "Welcome Back",
+                  "Welcome ",
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -138,7 +153,7 @@ class _LoginState extends State<Login> {
                   decoration: const InputDecoration(
                     labelText: "Email",
                     hintText: "Enter your email",
-                    prefixIcon: Icon(Icons.email_outlined),
+                    // prefixIcon: Icon(Icons.email_outlined),
                     labelStyle: TextStyle(color: Colors.black, fontSize: 16),
                     border: OutlineInputBorder(),
                   ),
@@ -150,7 +165,7 @@ class _LoginState extends State<Login> {
                   decoration: InputDecoration(
                     labelText: "Password",
                     hintText: "Enter your password",
-                    prefixIcon: const Icon(Icons.lock_outline),
+                    // prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
                         obscurePassword ? Icons.visibility_off : Icons.visibility,
@@ -213,7 +228,9 @@ class _LoginState extends State<Login> {
                     const Text("Don't have an account?"),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/signup');
+                        Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Register())
+                        );
                       },
                       child: const Text(
                         "Sign Up",
